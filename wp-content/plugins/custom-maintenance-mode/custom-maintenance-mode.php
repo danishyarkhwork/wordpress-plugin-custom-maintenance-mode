@@ -27,21 +27,45 @@ function cmm_deactivate_plugin()
 add_action('wp_enqueue_scripts', 'cmm_enqueue_assets');
 function cmm_enqueue_assets()
 {
-    if (get_option('cmm_enabled')) {
+    if (get_option('cmm_enabled') && !current_user_can('administrator')) {
+        // Enqueue CSS
         wp_enqueue_style('cmm-style', plugin_dir_url(__FILE__) . 'assets/css/style.css');
+
+        // Enqueue JS
         wp_enqueue_script('cmm-script', plugin_dir_url(__FILE__) . 'assets/js/script.js', array('jquery'), null, true);
+
+        // Get the current time and calculate the target time for the countdown
+        $countdown_hours = get_option('cmm_timer');
+        if ($countdown_hours) {
+            $target_time = (time() + $countdown_hours * 3600) * 1000; // Convert hours to milliseconds
+        } else {
+            $target_time = null;
+        }
+
+        // Pass PHP values to the JavaScript file
+        wp_localize_script('cmm-script', 'cmm_data', array(
+            'countdown_time' => $target_time,
+        ));
     }
 }
 
-// Check if maintenance mode is enabled and display the maintenance page
+
+
+
 add_action('template_redirect', 'cmm_check_maintenance_mode');
 function cmm_check_maintenance_mode()
 {
-    if (get_option('cmm_enabled') && !current_user_can('administrator')) {
+    if (get_option('cmm_enabled') && !current_user_can('manage_options')) {
+        // Enqueue styles and scripts for the maintenance page only
+        wp_enqueue_style('cmm-style', plugin_dir_url(__FILE__) . 'assets/css/style.css');
+        wp_enqueue_script('cmm-script', plugin_dir_url(__FILE__) . 'assets/js/script.js', array('jquery'), null, true);
+
         include plugin_dir_path(__FILE__) . 'templates/maintenance.php';
         exit;
     }
 }
+
+
 
 // Admin menu to configure settings
 add_action('admin_menu', 'cmm_create_settings_page');

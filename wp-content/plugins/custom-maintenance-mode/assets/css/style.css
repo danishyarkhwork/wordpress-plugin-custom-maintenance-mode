@@ -1,6 +1,92 @@
-/* Custom styles for maintenance mode */
+/* Modern styles for maintenance mode page */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap");
+
 body {
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins", sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
   text-align: center;
-  background-color: #f0f0f0;
-  font-family: "Arial", sans-serif;
+  background-color: rgba(
+    0,
+    0,
+    0,
+    0.8
+  ); /* Dark overlay for better readability */
+  color: #fff;
+}
+
+h1 {
+  font-size: 4rem;
+  font-weight: 600;
+  margin-bottom: 20px;
+  letter-spacing: 1px;
+}
+
+p {
+  font-size: 1.4rem;
+  font-weight: 300;
+  max-width: 600px;
+  margin: 0 auto 30px auto;
+  line-height: 1.6;
+  color: #dcdcdc;
+}
+
+#countdown {
+  font-size: 2rem;
+  font-weight: 600;
+  margin: 20px 0;
+  color: #ffd700;
+}
+
+.subscribe-form {
+  margin-top: 40px;
+  display: inline-block;
+}
+
+.subscribe-form input[type="email"] {
+  padding: 12px 15px;
+  font-size: 1rem;
+  border-radius: 30px;
+  border: none;
+  outline: none;
+  margin-right: 10px;
+  width: 250px;
+}
+
+.subscribe-form input[type="submit"] {
+  background-color: #ffd700;
+  color: #000;
+  padding: 12px 20px;
+  font-size: 1rem;
+  border-radius: 30px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.subscribe-form input[type="submit"]:hover {
+  background-color: #ffcc00;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  h1 {
+    font-size: 2.8rem;
+  }
+
+  p {
+    font-size: 1.2rem;
+  }
+
+  #countdown {
+    font-size: 1.5rem;
+  }
+
+  .subscribe-form input[type="email"] {
+    width: 200px;
+  }
 }
