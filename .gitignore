@@ -1,0 +1,73 @@
+# Ignore WordPress core files
+/wp-admin/
+/wp-includes/
+/wp-config.php
+/wp-content/plugins/
+/wp-content/uploads/
+/wp-content/languages/
+
+# Ignore sensitive files
+wp-config.php
+
+# Ignore log files and databases
+*.log
+*.sql
+*.sqlite
+*.env
+
+# Ignore OS-specific files
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Linux
+*~
+
+# Ignore IDE/editor specific files
+# VSCode
+.vscode/
+
+# Sublime Text
+*.sublime-project
+*.sublime-workspace
+
+# JetBrains IDEs (PHPStorm, WebStorm, IntelliJ)
+.idea/
+
+# Node.js specific (if you’re using Gulp/Grunt or other Node tools)
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Ignore Composer dependencies
+/vendor/
+
+# Ignore SASS, SCSS, and CSS preprocessor cache
+.sass-cache/
+*.scssc
+*.sassc
+*.css.map
+*.scss.map
+
+# Ignore compiled styles and scripts (if they are built/generated files)
+dist/
+*.min.css
+*.min.js
+*.map
+
+# Ignore WordPress database backup files
+*.sql.gz
+*.tar.gz
+*.zip
+
+# Ignore temporary files
+*.tmp
+*.temp
+*.swp
