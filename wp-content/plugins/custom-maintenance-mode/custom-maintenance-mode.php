@@ -1,13 +1,17 @@
 <?php
 /*
-Plugin Name: Custom Maintenance Mode
-Plugin URI: https://khaliddanishyar.com
-Description: A custom maintenance mode plugin with a customizable message, countdown timer, and email subscription integration.
+Plugin Name: Afghan Custom Maintenance Mode
+Plugin URI: https://khaliddanishyar.com/afghan-custom-maintenance-mode
+Description: A customizable maintenance mode plugin that allows users to display a custom message, background image, countdown timer, and email subscription form during site maintenance.
 Version: 1.0
-Author: Your Name
+Author: Khalid Danishyar
 Author URI: https://khaliddanishyar.com
 License: GPL2
+License URI: https://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: afghan-custom-maintenance-mode
+Domain Path: /languages
 */
+
 
 // Hook for activating the plugin
 register_activation_hook(__FILE__, 'cmm_activate_plugin');
@@ -72,7 +76,7 @@ add_action('admin_menu', 'cmm_create_settings_page');
 function cmm_create_settings_page()
 {
     add_menu_page(
-        'Custom Maintenance Mode',
+        'Afghan Custom Maintenance Mode',
         'Maintenance Mode',
         'administrator',
         'custom-maintenance-mode',
@@ -97,7 +101,7 @@ function cmm_settings_page_content()
 {
 ?>
     <div class="wrap">
-        <h1>Custom Maintenance Mode Settings</h1>
+        <h1>Afghan Custom Maintenance Mode Settings</h1>
         <form method="post" action="options.php" enctype="multipart/form-data">
             <?php settings_fields('cmm_settings_group'); ?>
             <?php do_settings_sections('cmm_settings_group'); ?>
